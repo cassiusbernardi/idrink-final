@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Produtos</h3>
+<hr/>
+    <%= render 'formbusca' %>
+    <div class="col-md-2 col-sm-2 col-xs-12">
+      <%= link_to " Relatorio", produtoslistagem_index_path(@produto, :format =>'pdf'), target: '_blank', class: "glyphicon glyphicon-print btn btn-default btn-lg" %>
+    </div>
+    </div> <!-- fecha o row que está dentro do formbusca -->
+<hr/>
+<table class="table table-striped produtos">
+  <thead>
+    <tr>
+      <th>Imagem</th>
+      <th>Descricao</th>
+      <th>Volume</th>
+      <th>Valorunit</th>
+      <th>Categoria</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td class="foto"><%= image_tag produto.img_url, class: 'img'  %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.volume %></td>
+        <td><%= produto.valorunit %></td>
+        <td><%= produto.categoria.descricao if produto.categoria %></td>
+        <td>
+          <%= link_to 'Mostrar', produto, class: 'btn btn-default' %>
+          
+          <%= link_to 'Editar', edit_produto_path(produto), class: 'btn btn-default' %>
+          
+          <%= link_to 'Deletar', produto, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br> 
+ <%= will_paginate @produtos, previous_label: "<<", next_label: ">>" %> <br/>
+<%= link_to 'Novo Produto', new_produto_path, class: 'btn btn-success btn-lg' %>
+
+
+
+

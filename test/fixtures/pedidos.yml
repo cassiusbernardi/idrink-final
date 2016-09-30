@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codped: 1
+  dataped: MyString
+  qtdprod: MyString
+  endereco: MyString
+  valortotal: 1.5
+
+two:
+  codped: 1
+  dataped: MyString
+  qtdprod: MyString
+  endereco: MyString
+  valortotal: 1.5

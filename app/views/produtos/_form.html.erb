@@ -1,0 +1,43 @@
+<%= form_for(produto) do |f| %>
+  <% if produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+      <% produto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Imagem %>
+    <%= image_tag @produto.img_url, class: 'img' if @produto.img? %>
+    <%= f.file_field :img, label: 'Imagem' , input_html: {accept: ('application/jpg') } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :volume %>
+    <%= f.text_field :volume %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Valor_Unitário %>
+    <%= f.text_field :valorunit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :categoria_id %>
+    <%= f.select :categoria_id, options_for_select(Categoria.all.map{|m|[m.descricao,m.id]},f.object.categoria_id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+<% end %>

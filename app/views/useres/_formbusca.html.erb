@@ -1,0 +1,11 @@
+<%= form_tag(useres_path, method: "get") do %>
+  <%= label_tag(:pname, "Nome:") %>
+  <%= text_field_tag(:pname,  @pname) %>
+  <br/>
+  <%= label_tag(:ptipo, "Tipo:") %>
+
+
+  <%= select_tag :ptipo, options_for_select(User.all.map{ |p| [p.tipo, p.tipo] }.insert(0, "").uniq,selected:@ptipo)%>
+
+  <%= submit_tag 'Filtrar' %>
+<% end %>

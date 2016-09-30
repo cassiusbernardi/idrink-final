@@ -1,0 +1,42 @@
+<%= form_for(pedido) do |f| %>
+  <% if pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+      <% pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codped %>
+    <%= f.number_field :codped %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dataped %>
+    <%= f.text_field :dataped %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qtdprod %>
+    <%= f.text_field :qtdprod %>
+  </div>
+
+  <div class="field">
+    <%= f.label :endereco %>
+    <%= f.text_field :endereco %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valortotal %>
+    <%= f.text_field :valortotal %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

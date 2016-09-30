@@ -1,0 +1,6 @@
+<%= form_tag(categorias_path, method: "get") do %>
+  <%= label_tag(:pdescricao, "Descrição:") %>
+  <%= text_field_tag(:pdescricao,  @pdescricao) %>
+  
+  <%= submit_tag 'Filtrar', class: 'btn btn-default' %>
+<% end %>

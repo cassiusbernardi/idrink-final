@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Imagem:</strong>
+  <%= image_tag @produto.img_url, class: 'img' if @produto.img? %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @produto.descricao %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @produto.volume %>
+</p>
+
+<p>
+  <strong>Valorunit:</strong>
+  <%= @produto.valorunit %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @produto.categoria.descricao %>
+</p>
+
+
+<%= link_to 'Editar', edit_produto_path(@produto), class: 'btn btn-default' %> |
+<%= link_to 'Voltar', produtos_path, class: 'glyphicon glyphicon-chevron-left btn btn-default' %>

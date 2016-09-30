@@ -1,0 +1,3 @@
+module PaginasHelper
+
+end

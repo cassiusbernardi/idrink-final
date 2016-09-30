@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        
+
+		<div class="container">
+
+    		<div class="row bebidas">
+
+            <% @produtos.each do |produto| %>
+                
+    			<div class="col-sm-3 col-md-3 col-xs-12">
+    				<div class="col-item">
+    		        	<h4 class="text-center"><span class="label label-info"><%= produto.categoria.descricao %></span></h4>
+    		            <div class="photo">
+    		                <%= image_tag produto.img_url, class: 'img' if produto.img? %>
+    		            </div>
+    		            <div class="info">
+    		                <div class="separator clear-left">
+    		                    <div class="col-md-6">
+    		                        <h5><%= produto.descricao %></h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="price-text-color"> R$ <%= produto.valorunit %></h5>
+                                </div>
+    		                </div>
+    		                <div class="clearfix">
+    		                </div>
+    		            </div>
+    		        </div>
+    			</div>
+
+                <% end %>
+
+
+    		</div>
+        </div>
+
+
+    </div>
+</div>

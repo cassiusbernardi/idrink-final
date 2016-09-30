@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Usuários</h3>
+<hr/>
+    <%= render 'formbusca' %>
+<hr/>
+<table class="table table-striped useres">
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Endereco</th>
+      <th>CPF</th>
+      <th>Telefone</th>
+      <th>Data Nascimento</th>      
+      <th colspan="5"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @useres.each do |user| %>
+      <tr>
+        <td><%= user.tipo %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.endereco %></td>
+        <td><%= user.cpf %></td>        
+        <td><%= user.telefone %></td>
+        <td><%= user.nascimento %></td>
+
+        <td>
+          <%= link_to 'Editar', edit_user_path(user),  class: 'btn btn-default' %>
+          <%= link_to 'Deletar', user, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,0 +1,20 @@
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<!--
+				Olá você está logado como ... SAIR.
+
+				Area do Cliente [2 links]
+					Perfil:para editar seus proprios dados
+					Carrinho: para visualizar itens do carrinho
+				ou
+				
+				Menu ADM [4 links]
+			-->
+			<li><%= link_to 'Categorias', categorias_path,class: "glyphicon glyphicon-th-list" %></li>
+			<li><%= link_to 'Produtos', produtos_path , class: "glyphicon glyphicon-modal-window"%></li>
+			<li><%= link_to 'Usuários', usuarios_path , class: "glyphicon glyphicon-user"%></li>
+			<li><%= link_to 'Relatórios', paginas_relatorios_path , class: "glyphicon glyphicon-list-alt"%></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+	<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<%= link_to 'iDrink', paginas_bebidas_path,class: "navbar-brand" %>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to ' Bebidas', paginas_bebidas_path,class: "glyphicon glyphicon-beer" %></li>
+				<li><%= link_to ' Contato', paginas_contato_path,class: "glyphicon glyphicon-comment" %></li>
+				<li>
+
+				<% if user_signed_in? %>
+					<% if current_user.tipo == 'cliente' %>
+						
+						<!-- AREA DO CLIENTE -->
+						<button type="button" class="dropdown-toggle btn btn-info navbar-btn btn-circle glyphicon glyphicon-chevron-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Área do Cliente</button>
+					    <nav class="dropdown-menu">
+					    	<div class="form-login">
+							    <ul>
+									<li><%= link_to('Perfil', edit_user_registration_path, class: 'glyphicon glyphicon-user') %></li>
+								</ul>
+							</div>
+						</nav>
+
+					<% else %>
+						<!-- AREA DO ADM -->
+						<button type="button" class="dropdown-toggle btn btn-info navbar-btn btn-circle glyphicon glyphicon-chevron-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Área do Adm</button>
+					    <nav class="dropdown-menu">
+						    <div class="form-login">
+						    	<ul>
+									<li><%= link_to 'Categorias', categorias_path,class: "glyphicon glyphicon-th-list" %></li>
+									<li><%= link_to 'Produtos', produtos_path , class: "glyphicon glyphicon-modal-window"%></li>
+									<li><%= link_to 'Usuarios', useres_path , class: "glyphicon glyphicon-user"%></li>
+								</ul>
+							</div>
+						</nav>
+					<% end %>
+					<span>
+						<%= link_to('Logout', destroy_user_session_path, class: 'botao-logout btn btn-danger glyphicon glyphicon-log-out', :method => :delete) %>
+					</span>
+				<% else %>
+
+					
+					<!-- LOGIN -->
+					<button type="button" class="dropdown-toggle btn btn-success navbar-btn btn-circle glyphicon glyphicon-chevron-down" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</button>
+				    <div class="dropdown-menu">
+						<div class="form-login">
+							<h4>Bem-vindo de volta.</h4>
+							
+
+
+							<%= form_for(:user, :url => session_path(:user)) do |f| %>
+							  <%= f.email_field :email, class: 'form-control input-sm chat-input', placeholder: 'E-mail' %>
+							  <%= f.password_field :password, class: 'form-control input-sm chat-input', placeholder: 'Senha' %>
+							  
+							<div class="wrapper">
+								<span class="group-btn">     
+									<%= f.submit 'Entrar', class: 'btn btn-primary btn-md' %> 
+									<!--i class="fa fa-sign-in"></i-->
+								</span>
+								<%= link_to "Esqueceu a senha?", new_password_path(:user) %>
+								<%= link_to('Cadastre-se', new_user_registration_path, class: 'cadastrese')  %>
+							</div>
+
+							  
+							<% end %>
+							
+						</div>
+				    </div>
+				<% end %>
+
+				       
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

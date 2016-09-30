@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codped:</strong>
+  <%= @pedido.codped %>
+</p>
+
+<p>
+  <strong>Dataped:</strong>
+  <%= @pedido.dataped %>
+</p>
+
+<p>
+  <strong>Qtdprod:</strong>
+  <%= @pedido.qtdprod %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @pedido.endereco %>
+</p>
+
+<p>
+  <strong>Valortotal:</strong>
+  <%= @pedido.valortotal %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>
