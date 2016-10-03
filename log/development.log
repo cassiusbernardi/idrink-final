@@ -23108,3 +23108,41 @@ Processing by PaginasController#bebidas as HTML
 Completed 200 OK in 283ms (Views: 273.1ms | ActiveRecord: 7.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2016-10-03 14:06:43 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (4.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PaginasController#bebidas as HTML
+  Rendering paginas/bebidas.html.erb within layouts/application
+  [1m[36mProduto Load (0.5ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos"[0m
+  [1m[36mCategoria Load (4.0ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered paginas/bebidas.html.erb within layouts/application (67.6ms)
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (64.8ms)
+Completed 200 OK in 1178ms (Views: 1128.9ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2016-10-03 14:06:48 -0300
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:CategoriasController> at /home/cassius/idrink-final/app/controllers/categorias_controller.rb:3)
+Processing by CategoriasController#index as HTML
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categorias/index.html.erb within layouts/application
+  Rendered categorias/_formbusca.html.erb (0.9ms)
+  [1m[36mCategoria Load (0.3ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered categorias/index.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+Completed 200 OK in 326ms (Views: 315.6ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/produtos" for 127.0.0.1 at 2016-10-03 14:06:50 -0300
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ProdutosController> at /home/cassius/idrink-final/app/controllers/produtos_controller.rb:9)
+Processing by ProdutosController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mCategoria Load (0.3ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  Rendered produtos/_formbusca.html.erb (7.5ms)
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT  "produtos".* FROM "produtos" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mCategoria Load (2.2ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered produtos/index.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+Completed 200 OK in 226ms (Views: 214.3ms | ActiveRecord: 4.3ms)
+
+
