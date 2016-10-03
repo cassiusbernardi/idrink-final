@@ -22688,3 +22688,423 @@ Processing by UseresController#index as HTML
 Completed 200 OK in 266ms (Views: 263.9ms | ActiveRecord: 0.6ms)
 
 
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1674881609258114250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategorias (20160919182503)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "categorias" ("id" serial primary key, "descricao" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160919182503"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProdutos (20160919183046)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "produtos" ("id" serial primary key, "descricao" character varying, "volume" float, "imagem" character varying, "categoria" character varying, "qtdunit" integer, "valorunit" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160919183046"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DeviseCreateUseres (20160921011411)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "useres" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_useres_on_email" ON "useres"  ("email")[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_useres_on_reset_password_token" ON "useres"  ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160921011411"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToUseres (20160921014500)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "useres" ADD "name" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160921014500"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTipoToUseres (20160921015338)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "useres" ADD "tipo" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160921015338"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCpfToUseres (20160921015354)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "useres" ADD "cpf" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160921015354"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddEnderecoToUseres (20160921015407)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "useres" ADD "endereco" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160921015407"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTelefoneToUseres (20160921015425)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "useres" ADD "telefone" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160921015425"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePedidos (20160924140435)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "pedidos" ("id" serial primary key, "codped" integer, "dataped" character varying, "qtdprod" character varying, "endereco" character varying, "valortotal" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160924140435"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveImagemFromProdutos (20160928201809)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "produtos" DROP "imagem"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160928201809"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveCategoriaFromProdutos (20160928201836)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "produtos" DROP "categoria"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160928201836"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveQtdunitFromProdutos (20160928201854)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "produtos" DROP "qtdunit"[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160928201854"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCategoriaToProdutos (20160928202025)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "produtos" ADD "categoria_id" integer[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_produtos_on_categoria_id" ON "produtos"  ("categoria_id")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "produtos" ADD CONSTRAINT "fk_rails_dc32f10a74"
+FOREIGN KEY ("categoria_id")
+  REFERENCES "categorias" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160928202025"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImgToProdutos (20160928212435)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "produtos" ADD "img" character varying[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160928212435"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveNascimentoFromUseres (20160929175045)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "useres" DROP "nascimento"[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1674881609258114250)[0m
+Started GET "/" for 127.0.0.1 at 2016-10-03 11:56:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (5.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.0.1) lib/active_record/migration.rb:572:in `check_pending!'
+activerecord (5.0.0.1) lib/active_record/migration.rb:548:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.7ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1674881609258114250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddNascimentoToUseres (20160929175133)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "useres" ADD "nascimento" date[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160929175133"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-03 14:58:03 UTC], ["updated_at", 2016-10-03 14:58:03 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1674881609258114250)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'categorias'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pedidos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'produtos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'useres'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+Started GET "/" for 127.0.0.1 at 2016-10-03 11:58:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PaginasController#bebidas as HTML
+  Rendering paginas/bebidas.html.erb within layouts/application
+  [1m[36mProduto Load (4.0ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos"[0m
+  Rendered paginas/bebidas.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_navbar.html.erb (38.6ms)
+Completed 200 OK in 1011ms (Views: 955.0ms | ActiveRecord: 11.8ms)
+
+
+Started POST "/useres/sign_in" for 127.0.0.1 at 2016-10-03 11:58:33 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lVAkfKgXD1+VO3PNN5T/PMf/tlOI2Z4x3tQpfOC0ZAYTUoEQpb1wUlLRa1/bAV04rrgLA+mMTqDhgJba2tP0sQ==", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."email" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 29ms (ActiveRecord: 11.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lVAkfKgXD1+VO3PNN5T/PMf/tlOI2Z4x3tQpfOC0ZAYTUoEQpb1wUlLRa1/bAV04rrgLA+mMTqDhgJba2tP0sQ==", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (20.5ms)
+  Rendered layouts/_navbar.html.erb (2.4ms)
+Completed 200 OK in 605ms (Views: 325.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/useres/sign_up" for 127.0.0.1 at 2016-10-03 11:58:37 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (20.8ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+Completed 200 OK in 172ms (Views: 170.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/useres" for 127.0.0.1 at 2016-10-03 11:59:14 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tWY1tTkUZI5a23yC80UilTMFu86KTgBcOh39dU5jd44wg6cNuBoCJPE+AKhWho/PILVVa2pB9u+0/pWXJ7gJdg==", "user"=>{"tipo"=>"administrador", "email"=>"email@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"Administrador", "cpf"=>"555.555.555-55", "endereco"=>"Campos", "telefone"=>"(22)2.2222.2222", "nascimento"=>"14-02-1992"}, "commit"=>"Sign up"}
+  [1m[35m (3.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "useres" WHERE "useres"."email" = $1 LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "useres" ("email", "encrypted_password", "created_at", "updated_at", "name", "tipo", "cpf", "endereco", "telefone", "nascimento") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["email", "email@email.com"], ["encrypted_password", "$2a$11$u3ekIb/bZBat.R0620WkF.rb1xP/JDPsfjdvy9OgjmmFkNgWH9BHO"], ["created_at", 2016-10-03 14:59:14 UTC], ["updated_at", 2016-10-03 14:59:14 UTC], ["name", "Administrador"], ["tipo", "administrador"], ["cpf", "555.555.555-55"], ["endereco", "Campos"], ["telefone", "(22)2.2222.2222"], ["nascimento", Fri, 14 Feb 1992]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[33mUPDATE "useres" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "useres"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", 2016-10-03 14:59:14 UTC], ["last_sign_in_at", 2016-10-03 14:59:14 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", 2016-10-03 14:59:14 UTC], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 332ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-10-03 11:59:14 -0300
+Processing by PaginasController#bebidas as HTML
+  Rendering paginas/bebidas.html.erb within layouts/application
+  [1m[36mProduto Load (2.8ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos"[0m
+  Rendered paginas/bebidas.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (14.4ms)
+Completed 200 OK in 294ms (Views: 281.7ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/paginas/bebidas" for 127.0.0.1 at 2016-10-03 11:59:16 -0300
+Processing by PaginasController#bebidas as HTML
+  Rendering paginas/bebidas.html.erb within layouts/application
+  [1m[36mProduto Load (0.5ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos"[0m
+  Rendered paginas/bebidas.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (3.9ms)
+Completed 200 OK in 259ms (Views: 256.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/produtos" for 127.0.0.1 at 2016-10-03 11:59:21 -0300
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ProdutosController> at /home/cassius/idrink-final/app/controllers/produtos_controller.rb:9)
+Processing by ProdutosController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mCategoria Load (0.5ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  Rendered produtos/_formbusca.html.erb (41.7ms)
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT  "produtos".* FROM "produtos" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered produtos/index.html.erb within layouts/application (47.0ms)
+  Rendered layouts/_navbar.html.erb (1.5ms)
+Completed 200 OK in 278ms (Views: 270.2ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/produtos/new" for 127.0.0.1 at 2016-10-03 11:59:25 -0300
+Processing by ProdutosController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/new.html.erb within layouts/application
+  [1m[36mCategoria Load (0.4ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  Rendered produtos/_form.html.erb (16.1ms)
+  Rendered produtos/new.html.erb within layouts/application (19.4ms)
+  Rendered layouts/_navbar.html.erb (2.6ms)
+Completed 200 OK in 198ms (Views: 184.6ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2016-10-03 11:59:54 -0300
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:CategoriasController> at /home/cassius/idrink-final/app/controllers/categorias_controller.rb:3)
+Processing by CategoriasController#index as HTML
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categorias/index.html.erb within layouts/application
+  Rendered categorias/_formbusca.html.erb (0.7ms)
+  [1m[36mCategoria Load (0.4ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered categorias/index.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 273ms (Views: 262.9ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/categorias/new" for 127.0.0.1 at 2016-10-03 11:59:57 -0300
+Processing by CategoriasController#new as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categorias/new.html.erb within layouts/application
+  Rendered categorias/_form.html.erb (2.0ms)
+  Rendered categorias/new.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+Completed 200 OK in 170ms (Views: 159.6ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/categorias" for 127.0.0.1 at 2016-10-03 12:00:02 -0300
+Processing by CategoriasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2C209dPvDhazXSB2T2Sappd6UzjqBWGf5aNbuEdHcB1IsUVMrzqO2bXCmadYdd3QfhQ0DGPMH0S/CQCWkBG1Fw==", "categoria"=>{"descricao"=>"Tequila"}, "commit"=>"Create Categoria"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "categorias" ("descricao", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["descricao", "Tequila"], ["created_at", 2016-10-03 15:00:02 UTC], ["updated_at", 2016-10-03 15:00:02 UTC]]
+  [1m[35m (55.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/1
+Completed 302 Found in 67ms (ActiveRecord: 57.4ms)
+
+
+Started GET "/categorias/1" for 127.0.0.1 at 2016-10-03 12:00:02 -0300
+Processing by CategoriasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategoria Load (0.2ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+Completed 200 OK in 312ms (Views: 296.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2016-10-03 12:00:04 -0300
+Processing by CategoriasController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categorias/index.html.erb within layouts/application
+  Rendered categorias/_formbusca.html.erb (0.7ms)
+  [1m[36mCategoria Load (0.2ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered categorias/index.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+Completed 200 OK in 254ms (Views: 250.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/produtos" for 127.0.0.1 at 2016-10-03 12:00:06 -0300
+Processing by ProdutosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mCategoria Load (2.1ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  Rendered produtos/_formbusca.html.erb (3.5ms)
+  [1m[36mProduto Load (0.4ms)[0m  [1m[34mSELECT  "produtos".* FROM "produtos" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  Rendered produtos/index.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+Completed 200 OK in 219ms (Views: 213.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/produtos/new" for 127.0.0.1 at 2016-10-03 12:00:08 -0300
+Processing by ProdutosController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/new.html.erb within layouts/application
+  [1m[36mCategoria Load (4.7ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  Rendered produtos/_form.html.erb (8.8ms)
+  Rendered produtos/new.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+Completed 200 OK in 266ms (Views: 257.1ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/produtos" for 127.0.0.1 at 2016-10-03 12:00:41 -0300
+Processing by ProdutosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D68IW7+U/Y60VBwXAaX7AVrBZbifzoUNCwK71KmmSrJ/ze2+reUz94R/Ad8L7aOk4x2b7wSJDlh4yRM4UH8evQ==", "produto"=>{"img"=>#<ActionDispatch::Http::UploadedFile:0x007f1cf9282590 @tempfile=#<Tempfile:/tmp/RackMultipart20161003-3900-qyj7bs.jpeg>, @original_filename="tequila.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"produto[img]\"; filename=\"tequila.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "descricao"=>"Jose Cuervo", "volume"=>"1", "valorunit"=>"150", "categoria_id"=>"1"}, "commit"=>"Create Produto"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategoria Load (0.3ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "produtos" ("descricao", "volume", "valorunit", "created_at", "updated_at", "categoria_id", "img") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["descricao", "Jose Cuervo"], ["volume", 1.0], ["valorunit", 150.0], ["created_at", 2016-10-03 15:00:41 UTC], ["updated_at", 2016-10-03 15:00:41 UTC], ["categoria_id", 1], ["img", "tequila.jpeg"]]
+  [1m[35m (43.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/produtos/1
+Completed 302 Found in 88ms (ActiveRecord: 50.4ms)
+
+
+Started GET "/produtos/1" for 127.0.0.1 at 2016-10-03 12:00:41 -0300
+Processing by ProdutosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduto Load (0.2ms)[0m  [1m[34mSELECT  "produtos".* FROM "produtos" WHERE "produtos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/show.html.erb within layouts/application
+  [1m[36mCategoria Load (0.2ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered produtos/show.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navbar.html.erb (6.1ms)
+Completed 200 OK in 311ms (Views: 304.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/produtos" for 127.0.0.1 at 2016-10-03 12:00:44 -0300
+Processing by ProdutosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering produtos/index.html.erb within layouts/application
+  [1m[36mCategoria Load (0.2ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  Rendered produtos/_formbusca.html.erb (1.9ms)
+  [1m[36mProduto Load (0.3ms)[0m  [1m[34mSELECT  "produtos".* FROM "produtos" WHERE (1=1) LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  [1m[36mCategoria Load (1.5ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered produtos/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+Completed 200 OK in 263ms (Views: 256.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/paginas/bebidas" for 127.0.0.1 at 2016-10-03 12:00:46 -0300
+Processing by PaginasController#bebidas as HTML
+  Rendering paginas/bebidas.html.erb within layouts/application
+  [1m[36mProduto Load (5.4ms)[0m  [1m[34mSELECT "produtos".* FROM "produtos"[0m
+  [1m[36mCategoria Load (0.2ms)[0m  [1m[34mSELECT  "categorias".* FROM "categorias" WHERE "categorias"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered paginas/bebidas.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "useres".* FROM "useres" WHERE "useres"."id" = $1 ORDER BY "useres"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_navbar.html.erb (4.6ms)
+Completed 200 OK in 283ms (Views: 273.1ms | ActiveRecord: 7.3ms)
+
+
