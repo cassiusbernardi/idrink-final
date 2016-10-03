@@ -6,7 +6,7 @@
 		<br>
 	  <%= label_tag(:pcategoria, "Categoria:") %>
 	  
-		<%= select_tag :pcategoria, options_for_select(Categoria.all.map{ |p| [p.descricao, p.id] }.insert(0, ""),selected:@pcategoria)%>
+	<%= select_tag :pcategoria, options_for_select(Categoria.all.map{ |p| [p.descricao, p.id] }.insert(0,""),selected:@pcategoria)%>
 	  
 	  
 	  <br><br>

@@ -27,8 +27,9 @@ before_filter :authenticate_user!
        filtro = filtro + " and descricao like '%"+@pdescricao+"%'"
     end
 
-    if not(@pcategoria.nil?)
-       filtro = filtro + " and categoria_id like '%"+@pcategoria+"%'"
+    if (not(@pcategoria.blank?))
+       filtro = filtro + " and categoria_id =" + @pcategoria
+
     end
     
 
